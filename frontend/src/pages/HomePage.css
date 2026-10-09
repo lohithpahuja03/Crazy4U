@@ -85,7 +85,7 @@
   font-size: clamp(2.75rem, 5.2vw, 4.5rem);
   font-weight: 900;
   line-height: 1.05;
-  color: #ffffff;
+  color: var(--text-main);
   margin-bottom: 1.35rem;
   letter-spacing: -0.03em;
 }
@@ -147,7 +147,7 @@
 .stat-number {
   font-size: 1.45rem;
   font-weight: 850;
-  color: #ffffff;
+  color: var(--text-main);
   font-family: var(--font-heading);
 }
 
@@ -499,7 +499,7 @@
 .cat-name {
   font-size: 0.95rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-main);
 }
 
 .cat-hover-arrow {
@@ -591,7 +591,7 @@
 .combo-title {
   font-size: 1.2rem;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--text-main);
   margin-bottom: 0.4rem;
 }
 
@@ -670,7 +670,7 @@
 .perk-card h4 {
   font-size: 1.2rem;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--text-main);
 }
 
 .perk-card p {
@@ -772,4 +772,64 @@
   .promo-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ========================================================
+   LIGHT MODE OVERRIDES FOR HOMEPAGE
+   ======================================================== */
+[data-theme="light"] .hero-glass-stats {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .stat-divider {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .hero-float-chip {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .hero-float-chip .chip-text strong {
+  color: #111116;
+}
+
+[data-theme="light"] .hero-rating-badge {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .category-pill-card {
+  background: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  border-color: #e4e4e7;
+}
+
+[data-theme="light"] .category-pill-card:hover {
+  background: rgba(226, 37, 37, 0.08);
+  border-color: var(--primary-red);
+}
+
+[data-theme="light"] .why-section {
+  background: #ffffff;
+  border-color: #e4e4e7;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .cta-callout-card {
+  background: linear-gradient(135deg, #fff5f5 0%, #fee2e2 50%, #fff1f1 100%);
+  border-color: rgba(226, 37, 37, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08), 0 0 30px rgba(226, 37, 37, 0.15);
+}
+
+[data-theme="light"] .cta-callout-title {
+  color: #111116;
+}
+
+[data-theme="light"] .cta-callout-desc {
+  color: #4b5563;
 }

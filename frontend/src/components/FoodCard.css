@@ -2,13 +2,13 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  background: rgba(22, 22, 30, 0.75);
+  background: var(--bg-card);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-glass);
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  box-shadow: var(--shadow-sm);
   transition: all var(--transition-spring);
 }
 
@@ -109,7 +109,7 @@
 .food-card-title {
   font-size: 1.1rem;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--text-main);
   margin-bottom: 0.45rem;
   cursor: pointer;
   transition: color var(--transition-fast);
@@ -137,7 +137,7 @@
   justify-content: space-between;
   margin-top: auto;
   padding-top: 0.85rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border-subtle);
 }
 
 .food-price-wrap {
@@ -149,7 +149,7 @@
 .current-price {
   font-size: 1.25rem;
   font-weight: 900;
-  color: #ffffff;
+  color: var(--primary-red);
 }
 
 .original-price {
@@ -197,4 +197,22 @@
   background: linear-gradient(135deg, #ff4040 0%, #e21c1c 100%);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 42, 42, 0.6);
+}
+
+/* Light Theme Overrides for FoodCard */
+[data-theme="light"] .food-card {
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  border-color: #e4e4e7;
+}
+
+[data-theme="light"] .bestseller-tag {
+  background: rgba(255, 255, 255, 0.95);
+  color: #d97706;
+  border-color: rgba(217, 119, 6, 0.4);
+}
+
+[data-theme="light"] .food-card-rating {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }

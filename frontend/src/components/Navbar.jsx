@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useCartStore } from '../store/useCartStore';
 import { useAuthStore } from '../store/useAuthStore';
+import { useThemeStore } from '../store/useThemeStore';
 import { FOOD_ITEMS } from '../data/foodData';
 import './Navbar.css';
 
@@ -10,6 +11,7 @@ export default function Navbar({ onOpenAuth, onSelectItem }) {
   const location = useLocation();
   const cartItemCount = useCartStore((state) => state.getItemCount());
   const { user, isAuthenticated } = useAuthStore();
+  const { theme, toggleTheme } = useThemeStore();
 
   const [searchQuery, setSearchQuery] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -167,6 +169,22 @@ export default function Navbar({ onOpenAuth, onSelectItem }) {
 
           {/* Right Action Icons & Badges */}
           <div className="navbar-actions">
+            {/* Theme Toggle Button */}
+            <button
+              type="button"
+              className="theme-toggle-btn"
+              onClick={toggleTheme}
+              title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              aria-label={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`}
+            >
+              <span className="theme-toggle-icon">
+                {theme === 'dark' ? '☀️' : '🌙'}
+              </span>
+              <span className="theme-toggle-label">
+                {theme === 'dark' ? 'Light' : 'Dark'}
+              </span>
+            </button>
+
             {/* Tokens Balance Badge (When Logged In) */}
             {isAuthenticated && user && (
               <Link to="/profile" className="token-badge-nav" title="Your Crazy4U Token Balance">

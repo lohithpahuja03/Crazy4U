@@ -14,7 +14,7 @@
 .menu-header-title {
   font-size: clamp(2.2rem, 4.5vw, 3rem);
   font-weight: 900;
-  color: #ffffff;
+  color: var(--text-main);
   margin-bottom: 0.5rem;
   letter-spacing: -0.02em;
 }
@@ -190,12 +190,12 @@
 
 .sort-dropdown {
   padding: 0.5rem 0.95rem;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
-  background: #15151c;
+  background: var(--bg-surface);
   font-size: 0.88rem;
   font-weight: 650;
-  color: #ffffff;
+  color: var(--text-main);
   outline: none;
 }
 
@@ -206,7 +206,7 @@
 }
 
 .results-count-bar strong {
-  color: #ffffff;
+  color: var(--text-main);
 }
 
 .query-tag {
@@ -231,7 +231,7 @@
 .empty-search-state h3 {
   font-size: 1.5rem;
   font-weight: 850;
-  color: #ffffff;
+  color: var(--text-main);
   margin-bottom: 0.5rem;
 }
 
@@ -239,4 +239,55 @@
   color: var(--text-muted);
   font-size: 0.95rem;
   margin-bottom: 1.75rem;
+}
+
+/* Light Theme Overrides for MenuPage */
+[data-theme="light"] .menu-header-banner {
+  background: radial-gradient(circle at 50% 20%, rgba(226, 37, 37, 0.08) 0%, rgba(248, 248, 251, 0.98) 75%);
+  border-bottom-color: #e4e4e7;
+}
+
+[data-theme="light"] .menu-search-box {
+  background: #ffffff;
+  border-color: #e4e4e7;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .menu-search-box input {
+  color: #111116;
+}
+
+[data-theme="light"] .cat-pill-btn {
+  background: #ffffff;
+  border-color: #e4e4e7;
+  color: var(--text-secondary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .cat-pill-btn:hover {
+  background: rgba(226, 37, 37, 0.08);
+  color: var(--primary-red);
+}
+
+[data-theme="light"] .cat-pill-btn.active {
+  background: linear-gradient(135deg, #ff2a2a 0%, #d41414 100%);
+  color: #ffffff;
+}
+
+[data-theme="light"] .menu-filter-toolbar {
+  background: #ffffff;
+  border-color: #e4e4e7;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .diet-btn {
+  background: #f4f4f7;
+  border-color: #e4e4e7;
+  color: var(--text-main);
+}
+
+[data-theme="light"] .sort-dropdown {
+  background: #f4f4f7;
+  border-color: #e4e4e7;
+  color: #111116;
 }

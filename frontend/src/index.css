@@ -1,5 +1,5 @@
-:root {
-  /* Brand Theme: Black & Red with Neon Accents */
+:root, [data-theme="dark"] {
+  /* DARK THEME (DEFAULT) - PURE BLACK & ELECTRIC RED */
   --primary-red: #ff2a2a;
   --primary-red-hover: #e21c1c;
   --primary-red-dark: #b91c1c;
@@ -7,7 +7,7 @@
   --primary-red-subtle: rgba(255, 42, 42, 0.12);
   --primary-red-border: rgba(255, 42, 42, 0.3);
 
-  /* Deep Dark Backgrounds */
+  /* Backgrounds */
   --bg-primary: #08080a;
   --bg-secondary: #0f0f13;
   --bg-card: #15151b;
@@ -16,7 +16,7 @@
   --bg-glass: rgba(18, 18, 24, 0.75);
   --bg-glass-strong: rgba(12, 12, 16, 0.88);
 
-  /* Crisp Typography */
+  /* Typography */
   --text-main: #ffffff;
   --text-secondary: #e4e4e9;
   --text-muted: #9ca3af;
@@ -47,6 +47,51 @@
   --transition-fast: 150ms ease;
   --transition-normal: 250ms ease;
   --transition-spring: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  --bg-radial-gradient: 
+    radial-gradient(circle at 15% 15%, rgba(255, 42, 42, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 65%, rgba(255, 42, 42, 0.06) 0%, transparent 45%);
+}
+
+/* LIGHT THEME OVERRIDES (WHEN TOGGLED) */
+[data-theme="light"] {
+  --primary-red: #e22525;
+  --primary-red-hover: #c81e1e;
+  --primary-red-dark: #991b1b;
+  --primary-red-glow: rgba(226, 37, 37, 0.25);
+  --primary-red-subtle: #fff1f1;
+  --primary-red-border: rgba(226, 37, 37, 0.2);
+
+  /* White & Light Grey Backgrounds */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f8fb;
+  --bg-card: #ffffff;
+  --bg-surface: #f4f4f7;
+  --bg-elevated: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.82);
+  --bg-glass-strong: rgba(255, 255, 255, 0.94);
+
+  /* Dark text for crisp contrast */
+  --text-main: #111116;
+  --text-secondary: #3f3f46;
+  --text-muted: #71717a;
+  --text-dim: #a1a1aa;
+
+  /* Borders & Shadows */
+  --border-glass: rgba(0, 0, 0, 0.08);
+  --border-glass-hover: rgba(226, 37, 37, 0.35);
+  --border-subtle: #e4e4e7;
+  --border-strong: #d4d4d8;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+  --shadow-red-glow: 0 6px 20px rgba(226, 37, 37, 0.22);
+  --shadow-red-strong: 0 8px 24px rgba(226, 37, 37, 0.3);
+
+  --bg-radial-gradient: 
+    radial-gradient(circle at 15% 15%, rgba(226, 37, 37, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 85% 65%, rgba(226, 37, 37, 0.03) 0%, transparent 45%);
 }
 
 *, *::before, *::after {
@@ -64,10 +109,9 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  background-image: 
-    radial-gradient(circle at 15% 15%, rgba(255, 42, 42, 0.08) 0%, transparent 40%),
-    radial-gradient(circle at 85% 65%, rgba(255, 42, 42, 0.06) 0%, transparent 45%);
+  background-image: var(--bg-radial-gradient);
   background-attachment: fixed;
+  transition: background-color 300ms ease, color 300ms ease;
 }
 
 #root {

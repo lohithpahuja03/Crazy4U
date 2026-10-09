@@ -13,7 +13,7 @@
 .cart-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #ffffff;
+  color: var(--text-main);
   margin-bottom: 0.35rem;
 }
 
@@ -59,7 +59,7 @@
 .empty-cart-title {
   font-size: 1.75rem;
   font-weight: 850;
-  color: #ffffff;
+  color: var(--text-main);
   margin-bottom: 0.75rem;
 }
 
@@ -125,7 +125,7 @@
 .cart-item-name {
   font-size: 1.1rem;
   font-weight: 750;
-  color: #ffffff;
+  color: var(--text-main);
 }
 
 .cart-item-del-btn {
@@ -187,7 +187,7 @@
 .line-total {
   font-size: 1.2rem;
   font-weight: 850;
-  color: #ffffff;
+  color: var(--text-main);
 }
 
 .cart-quantity-stepper {
@@ -223,7 +223,7 @@
   font-size: 0.95rem;
   min-width: 14px;
   text-align: center;
-  color: #ffffff;
+  color: var(--text-main);
 }
 
 .free-delivery-hint-card {
@@ -258,7 +258,7 @@
 .coupon-card-title {
   font-size: 1.15rem;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--text-main);
   margin-bottom: 1rem;
 }
 
@@ -373,7 +373,7 @@
 .bill-title {
   font-size: 1.25rem;
   font-weight: 850;
-  color: #ffffff;
+  color: var(--text-main);
   margin-bottom: 1.35rem;
 }
 
@@ -390,7 +390,7 @@
 
 .bill-value {
   font-weight: 750;
-  color: #ffffff;
+  color: var(--text-main);
 }
 
 .discount-row .bill-label,
@@ -415,7 +415,7 @@
 .total-label {
   font-size: 1.15rem;
   font-weight: 850;
-  color: #ffffff;
+  color: var(--text-main);
 }
 
 .total-amount {
@@ -447,4 +447,60 @@
   .cart-layout-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Light Mode Overrides for CartPage */
+[data-theme="light"] .cart-item-card {
+  background: #ffffff;
+  border-color: #e4e4e7;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .cart-empty-card {
+  background: #ffffff;
+  border-color: #e4e4e7;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .coupon-card,
+[data-theme="light"] .bill-summary-card {
+  background: #ffffff;
+  border-color: #e4e4e7;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .coupon-form input {
+  background: #f4f4f7;
+  border-color: #e4e4e7;
+  color: #111116;
+}
+
+[data-theme="light"] .apply-coupon-btn {
+  background: #18181b;
+  color: #ffffff;
+}
+
+[data-theme="light"] .quick-coupon-chip {
+  background: #f4f4f7;
+  border-color: #e4e4e7;
+  color: #27272a;
+}
+
+[data-theme="light"] .bill-divider {
+  border-bottom-color: #e4e4e7;
+}
+
+[data-theme="light"] .cart-quantity-stepper {
+  background: #f4f4f7;
+  border-color: #e4e4e7;
+}
+
+[data-theme="light"] .stepper-action-btn {
+  background: #e4e4e7;
+  color: #18181b;
+}
+
+[data-theme="light"] .stepper-action-btn:hover {
+  background: var(--primary-red);
+  color: #ffffff;
 }
