@@ -1,62 +1,155 @@
-import './App.css'
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
-function App() {
-  const deliverables = [
-    'Clean Monorepo Structure (frontend/ & backend/)',
-    'Vite + React 18 frontend environment initialized',
-    'Node.js + Express backend REST API configured with health check',
-    'Essential libraries installed (Router, Zustand, Axios, Mongoose, JWT)',
-    'White & Red Design Tokens established in CSS',
-    'Root README.md & ROADMAP.md documentation created',
-    'Git repository & remote tracking configured',
-  ];
+// Styling
+import './styles/designSystem.css';
 
-  return (
-    <div className="foundation-container">
-      <div className="brand-badge">
-        🍕 Crazy4U Platform
-      </div>
+// Components
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import ProductModal from './components/ProductModal';
+import OrderPackedModal from './components/OrderPackedModal';
+import AuthModal from './components/AuthModal';
 
-      <h1 className="brand-title">
-        Good Food. Good Mood. <span>Crazy4U.</span>
-      </h1>
+// Pages
+import HomePage from './pages/HomePage';
+import MenuPage from './pages/MenuPage';
+import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
+import OrderConfirmationPage from './pages/OrderConfirmationPage';
+import OrderTrackingPage from './pages/OrderTrackingPage';
+import ProfilePage from './pages/ProfilePage';
+import OffersPage from './pages/OffersPage';
 
-      <p className="brand-subtitle">
-        Commercial food-ordering experience in active development. Phase 1 Foundation successfully established.
-      </p>
+// Stores
+import { useCartStore } from './store/useCartStore';
+import { useOrderStore } from './store/useOrderStore';
+import toast from 'react-hot-toast';
 
-      <div className="phase-card">
-        <div className="phase-header">
-          <div>
-            <h3>Phase 1 — Project Foundation</h3>
-            <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
-              Base architecture, tooling, and environment setup
-            </p>
-          </div>
-          <span className="phase-tag">COMPLETED</span>
-        </div>
-
-        <ul className="checklist">
-          {deliverables.map((item, index) => (
-            <li key={index} className="checklist-item">
-              <span className="check-icon">✓</span>
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-        <button className="cta-button" onClick={() => alert('Ready for Phase 2: Design System & Navigation!')}>
-          Next: Phase 2 — Design System & Global UI →
-        </button>
-      </div>
-
-      <p className="footer-info">
-        Crazy4U © 2026 • Frontend: React + Vite • Backend: Express API • Remote: github.com/lohithpahuja03/Crazy4U
-      </p>
-    </div>
-  )
+// Scroll to top helper
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
 }
 
-export default App
+function MainApp() {
+  const [selectedFood, setSelectedFood] = useState(null);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+
+  const addItem = useCartStore((state) => state.addItem);
+  const { showPackedPopup, setShowPackedPopup, activeOrderId, orders } = useOrderStore();
+
+  const handleQuickAdd = (food) => {
+    addItem({
+      id: food.id,
+      name: food.name,
+      image: food.image,
+      category: food.category,
+      isVeg: food.isVeg,
+      unitPrice: food.basePrice,
+      quantity: 1
+    });
+    toast.success(`Added ${food.name} to cart! 🍕`, {
+      style: {
+        border: '1px solid #e22525',
+        padding: '12px 16px',
+        color: '#18181b',
+        fontWeight: '600'
+      },
+      iconTheme: {
+        primary: '#e22525',
+        secondary: '#fff'
+      }
+    });
+  };
+
+  return (
+    <div className="crazy4u-app-root">
+      <ScrollToTop />
+      <Toaster position="top-right" toastOptions={{ duration: 3500 }} />
+
+      {/* Global Navigation */}
+      <Navbar
+        onOpenAuth={() => setIsAuthModalOpen(true)}
+        onSelectItem={(item) => setSelectedFood(item)}
+      />
+
+      {/* Application Routing */}
+      <main className="crazy4u-main-content">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage
+                onSelectItem={(food) => setSelectedFood(food)}
+                onQuickAdd={handleQuickAdd}
+              />
+            }
+          />
+          <Route
+            path="/menu"
+            element={
+              <MenuPage
+                onSelectItem={(food) => setSelectedFood(food)}
+                onQuickAdd={handleQuickAdd}
+              />
+            }
+          />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/order-confirmation" element={<OrderConfirmationPage />} />
+          <Route path="/orders" element={<OrderTrackingPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/offers" element={<OffersPage />} />
+          <Route
+            path="*"
+            element={
+              <div className="container" style={{ padding: '6rem 1.5rem', textAlign: 'center' }}>
+                <h1 style={{ fontSize: '3rem', color: 'var(--primary-red)' }}>404</h1>
+                <h2>Page Not Found</h2>
+                <p style={{ color: 'var(--text-muted)', margin: '1rem 0' }}>The food route you are looking for does not exist.</p>
+                <a href="/" className="btn-primary">Return Home 🍕</a>
+              </div>
+            }
+          />
+        </Routes>
+      </main>
+
+      {/* Global Footer */}
+      <Footer />
+
+      {/* Product Customisation Modal */}
+      {selectedFood && (
+        <ProductModal
+          food={selectedFood}
+          onClose={() => setSelectedFood(null)}
+        />
+      )}
+
+      {/* Order Packed Animated Popup (Section 25) */}
+      <OrderPackedModal
+        isOpen={showPackedPopup}
+        onClose={() => setShowPackedPopup(false)}
+        orderId={activeOrderId || orders[0]?.id}
+      />
+
+      {/* Authentication Modal */}
+      <AuthModal
+        isOpen={isAuthModalOpen}
+        onClose={() => setIsAuthModalOpen(false)}
+      />
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <MainApp />
+    </BrowserRouter>
+  );
+}

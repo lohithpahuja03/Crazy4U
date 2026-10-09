@@ -1,0 +1,468 @@
+.tracking-page-container {
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+}
+
+.tracking-tabs-header {
+  display: flex;
+  gap: 1rem;
+  border-bottom: 1.5px solid var(--border-medium);
+  margin-bottom: 2rem;
+}
+
+.tab-btn {
+  background: none;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  padding: 0.75rem 1rem;
+  border-bottom: 3px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.tab-btn:hover {
+  color: var(--text-main);
+}
+
+.tab-btn.active {
+  color: var(--primary-red);
+  border-bottom-color: var(--primary-red);
+}
+
+/* Layout */
+.tracking-layout-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.tracking-main-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tracking-status-card {
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+}
+
+.tracking-top-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.order-chip-id {
+  font-size: 1.15rem;
+  font-weight: 850;
+  font-family: monospace;
+  color: var(--text-main);
+  display: block;
+}
+
+.order-time-text {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.status-badge-active {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.status-badge-cancelled {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+/* Timeline */
+.timeline-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: 2rem;
+}
+
+.timeline-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  bottom: 15px;
+  left: 27px;
+  width: 2px;
+  background-color: var(--border-medium);
+}
+
+.timeline-step {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  position: relative;
+  z-index: 1;
+}
+
+.step-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid var(--border-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  box-shadow: var(--shadow-xs);
+  transition: all var(--transition-normal);
+}
+
+.timeline-step.done .step-circle {
+  background: #22c55e;
+  border-color: #22c55e;
+  color: white;
+}
+
+.timeline-step.current .step-circle {
+  background: var(--primary-red);
+  border-color: var(--primary-red);
+  color: white;
+  animation: pulseGlow 1.5s infinite;
+}
+
+.step-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-label {
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.step-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Demo Simulator Bar */
+.demo-advance-bar {
+  background: #f4f4f7;
+  border: 1px dashed var(--border-medium);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+  font-size: 0.85rem;
+}
+
+.btn-advance-demo {
+  background: #18181b;
+  color: white;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: all var(--transition-fast);
+}
+
+.btn-advance-demo:hover {
+  background: #3f3f46;
+}
+
+/* 5-Min Cancellation Section */
+.cancellation-section-card {
+  border-top: 1px solid var(--border-light);
+  padding-top: 1.5rem;
+}
+
+.cancellation-active-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+}
+
+.cancel-title {
+  font-size: 0.92rem;
+  color: #92400e;
+  display: block;
+}
+
+.cancel-sub {
+  font-size: 0.82rem;
+  color: #b45309;
+}
+
+.cancel-timer-chip {
+  background: #f59e0b;
+  color: white;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  font-family: monospace;
+}
+
+.btn-cancel-order {
+  background: white;
+  color: #dc2626;
+  border: 1.5px solid #dc2626;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: all var(--transition-fast);
+}
+
+.btn-cancel-order:hover {
+  background: #dc2626;
+  color: white;
+}
+
+.cancellation-expired-box {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.cancelled-notice-box {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 0.85rem;
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Rider Card */
+.rider-card {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-lg);
+  gap: 1.25rem;
+}
+
+.rider-avatar {
+  font-size: 2.25rem;
+  background: var(--bg-alt);
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rider-info {
+  flex: 1;
+}
+
+.rider-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.rider-name {
+  font-size: 1.05rem;
+  color: var(--text-main);
+  display: block;
+}
+
+.rider-rating {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.rider-distance-eta {
+  text-align: right;
+}
+
+.eta-badge {
+  background: #ecfdf5;
+  color: #047857;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  display: block;
+}
+
+.distance-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Side Card */
+.side-order-card {
+  padding: 1.75rem;
+  border-radius: var(--radius-lg);
+}
+
+.side-card-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+}
+
+.side-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.side-item-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+}
+
+.side-item-qty {
+  font-weight: 700;
+  color: var(--primary-red);
+  margin-right: 6px;
+}
+
+.address-side-val {
+  max-width: 170px;
+  text-align: right;
+  font-size: 0.82rem;
+}
+
+.tokens-awarded-chip {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: var(--radius-sm);
+  padding: 0.6rem;
+  font-size: 0.85rem;
+  color: #b45309;
+  text-align: center;
+  margin-top: 1.25rem;
+}
+
+/* History Tab List */
+.orders-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.history-order-card {
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+}
+
+.history-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.history-id {
+  font-size: 1.1rem;
+  font-family: monospace;
+}
+
+.history-date {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-left: 0.5rem;
+}
+
+.history-status-badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.history-status-badge.delivered {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.history-status-badge.cancelled {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.history-items-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.history-item-pill {
+  background: var(--bg-alt);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  padding: 3px 9px;
+  border-radius: var(--radius-sm);
+}
+
+.history-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-light);
+  padding-top: 1rem;
+}
+
+.history-total-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.history-total-price strong {
+  font-size: 1.2rem;
+  color: var(--text-main);
+}
+
+.history-pay-method {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.history-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn-sm {
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 900px) {
+  .tracking-layout-grid {
+    grid-template-columns: 1fr;
+  }
+}
