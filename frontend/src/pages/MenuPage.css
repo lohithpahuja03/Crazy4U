@@ -1,75 +1,89 @@
 .menu-page-wrap {
   display: flex;
   flex-direction: column;
-  padding-bottom: 4rem;
+  padding-bottom: 5rem;
 }
 
 .menu-header-banner {
-  background: linear-gradient(135deg, #fff1f1 0%, #ffffff 80%);
-  padding: 3rem 0 2rem;
+  background: radial-gradient(circle at 50% 20%, rgba(255, 42, 42, 0.15) 0%, rgba(8, 8, 10, 0.95) 75%);
+  padding: 3.5rem 0 2.5rem;
   text-align: center;
-  border-bottom: 1px solid var(--border-light);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .menu-header-title {
-  font-size: clamp(2rem, 4vw, 2.75rem);
-  font-weight: 850;
+  font-size: clamp(2.2rem, 4.5vw, 3rem);
+  font-weight: 900;
+  color: #ffffff;
   margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
 }
 
 .menu-header-subtitle {
   color: var(--text-muted);
-  font-size: 1rem;
-  max-width: 580px;
-  margin: 0 auto 1.5rem;
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: 0 auto 1.75rem;
 }
 
 .menu-search-box {
-  max-width: 520px;
+  max-width: 540px;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  background: white;
-  border: 1.5px solid var(--border-medium);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
   border-radius: var(--radius-full);
-  padding: 0.6rem 1.25rem;
-  gap: 0.75rem;
-  box-shadow: var(--shadow-sm);
+  padding: 0.65rem 1.35rem;
+  gap: 0.85rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   transition: all var(--transition-fast);
 }
 
 .menu-search-box:focus-within {
   border-color: var(--primary-red);
-  box-shadow: 0 0 0 4px var(--primary-red-glow);
+  box-shadow: 0 0 0 3px rgba(255, 42, 42, 0.25), 0 0 20px rgba(255, 42, 42, 0.2);
+  background: rgba(255, 255, 255, 0.09);
 }
 
 .menu-search-box input {
   flex: 1;
   border: none;
   font-size: 0.95rem;
-  color: var(--text-main);
+  color: #ffffff;
+  background: transparent;
+}
+
+.menu-search-box input::placeholder {
+  color: var(--text-dim);
 }
 
 .clear-search-btn {
-  background: var(--bg-alt);
+  background: rgba(255, 255, 255, 0.1);
   color: var(--text-muted);
   font-size: 0.78rem;
   font-weight: 700;
-  padding: 3px 8px;
+  padding: 3px 9px;
   border-radius: var(--radius-full);
 }
 
+.clear-search-btn:hover {
+  background: var(--primary-red);
+  color: white;
+}
+
 .menu-main-layout {
-  padding-top: 2rem;
+  padding-top: 2.25rem;
 }
 
 /* Category horizontal pills */
 .category-scroll-bar {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.85rem;
   overflow-x: auto;
-  padding-bottom: 0.75rem;
-  margin-bottom: 1.5rem;
+  padding-bottom: 0.85rem;
+  margin-bottom: 1.75rem;
   scrollbar-width: none;
 }
 
@@ -80,12 +94,13 @@
 .cat-pill-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background: white;
-  border: 1.5px solid var(--border-medium);
-  padding: 0.65rem 1.2rem;
+  gap: 0.55rem;
+  background: rgba(22, 22, 28, 0.75);
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(10px);
+  padding: 0.7rem 1.35rem;
   border-radius: var(--radius-full);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   font-weight: 700;
   color: var(--text-secondary);
   white-space: nowrap;
@@ -94,14 +109,15 @@
 
 .cat-pill-btn:hover {
   border-color: var(--primary-red);
-  color: var(--primary-red);
+  color: #ffffff;
+  background: rgba(255, 42, 42, 0.1);
 }
 
 .cat-pill-btn.active {
-  background-color: var(--primary-red);
+  background: linear-gradient(135deg, #ff2a2a 0%, #d41414 100%);
   border-color: var(--primary-red);
   color: white;
-  box-shadow: 0 4px 12px rgba(226, 37, 37, 0.25);
+  box-shadow: 0 4px 18px rgba(255, 42, 42, 0.45);
 }
 
 /* Secondary filter toolbar */
@@ -111,17 +127,18 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
-  background: white;
-  padding: 0.85rem 1.25rem;
+  background: rgba(20, 20, 26, 0.75);
+  backdrop-filter: blur(12px);
+  padding: 0.95rem 1.35rem;
   border-radius: var(--radius-md);
-  border: 1px solid var(--border-light);
-  margin-bottom: 1.25rem;
+  border: 1px solid var(--border-glass);
+  margin-bottom: 1.5rem;
 }
 
 .dietary-filter-group {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.85rem;
   flex-wrap: wrap;
 }
 
@@ -129,9 +146,9 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: var(--bg-alt);
-  border: 1px solid var(--border-medium);
-  padding: 0.45rem 0.9rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.45rem 0.95rem;
   border-radius: var(--radius-full);
   font-size: 0.85rem;
   font-weight: 600;
@@ -140,22 +157,24 @@
 }
 
 .diet-btn.active-veg {
-  background-color: #f0fdf4;
+  background-color: rgba(34, 197, 94, 0.15);
   border-color: #22c55e;
-  color: #15803d;
+  color: #4ade80;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
 }
 
 .diet-btn.active-nonveg {
-  background-color: #fef2f2;
+  background-color: rgba(239, 68, 68, 0.15);
   border-color: #ef4444;
-  color: #b91c1c;
+  color: #f87171;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
 }
 
 .reset-filter-btn {
   background: none;
   color: var(--primary-red);
-  font-size: 0.82rem;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 750;
   text-decoration: underline;
   padding: 0 0.5rem;
 }
@@ -170,48 +189,54 @@
 }
 
 .sort-dropdown {
-  padding: 0.45rem 0.85rem;
-  border: 1px solid var(--border-medium);
+  padding: 0.5rem 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--radius-sm);
-  background: white;
+  background: #15151c;
   font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--text-main);
+  font-weight: 650;
+  color: #ffffff;
+  outline: none;
 }
 
 .results-count-bar {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   color: var(--text-muted);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.results-count-bar strong {
+  color: #ffffff;
 }
 
 .query-tag {
   color: var(--primary-red);
-  font-weight: 600;
+  font-weight: 700;
   margin-left: 0.35rem;
 }
 
 /* Empty Search State */
 .empty-search-state {
   text-align: center;
-  padding: 4rem 2rem;
-  max-width: 500px;
+  padding: 4.5rem 2rem;
+  max-width: 520px;
   margin: 2rem auto;
 }
 
 .empty-search-emoji {
-  font-size: 3.5rem;
+  font-size: 4rem;
   margin-bottom: 1rem;
 }
 
 .empty-search-state h3 {
-  font-size: 1.35rem;
-  font-weight: 800;
+  font-size: 1.5rem;
+  font-weight: 850;
+  color: #ffffff;
   margin-bottom: 0.5rem;
 }
 
 .empty-search-state p {
   color: var(--text-muted);
   font-size: 0.95rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 }

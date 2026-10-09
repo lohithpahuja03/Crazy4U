@@ -1,93 +1,99 @@
 .checkout-page-container {
-  padding-top: 2.5rem;
-  padding-bottom: 4rem;
+  padding-top: 3rem;
+  padding-bottom: 5rem;
 }
 
 .checkout-title {
-  font-size: 2.25rem;
-  font-weight: 850;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #ffffff;
   margin-bottom: 0.35rem;
 }
 
 .checkout-subtitle {
   color: var(--text-muted);
-  font-size: 0.95rem;
-  margin-bottom: 2rem;
+  font-size: 1rem;
+  margin-bottom: 2.25rem;
 }
 
 .checkout-layout-grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
-  gap: 2rem;
+  gap: 2.25rem;
   align-items: flex-start;
 }
 
 .checkout-main-col {
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  gap: 2rem;
 }
 
 .checkout-card {
-  padding: 1.75rem;
+  padding: 2rem;
   border-radius: var(--radius-lg);
 }
 
 .step-tag {
   font-size: 0.75rem;
-  font-weight: 800;
-  color: var(--primary-red);
-  background: var(--primary-red-light);
-  padding: 2px 8px;
+  font-weight: 850;
+  color: #ff5252;
+  background: rgba(255, 42, 42, 0.15);
+  border: 1px solid rgba(255, 42, 42, 0.3);
+  padding: 2px 9px;
   border-radius: var(--radius-full);
   display: inline-block;
   margin-bottom: 0.35rem;
+  letter-spacing: 0.04em;
 }
 
 .card-section-title {
-  font-size: 1.25rem;
-  font-weight: 800;
+  font-size: 1.35rem;
+  font-weight: 850;
+  color: #ffffff;
 }
 
 .card-header-flex {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .btn-add-addr-toggle {
   background: none;
   color: var(--primary-red);
-  font-weight: 700;
-  font-size: 0.88rem;
+  font-weight: 750;
+  font-size: 0.9rem;
 }
 
 /* Address List Grid */
 .addresses-list-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
+  gap: 1.15rem;
 }
 
 .address-select-card {
-  padding: 1rem;
-  border: 1.5px solid var(--border-medium);
+  padding: 1.15rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-md);
   cursor: pointer;
   display: flex;
   flex-direction: column;
   transition: all var(--transition-fast);
-  background: white;
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .address-select-card:hover {
-  border-color: var(--primary-red);
+  border-color: rgba(255, 42, 42, 0.4);
+  background: rgba(255, 42, 42, 0.05);
 }
 
 .address-select-card.selected {
   border-color: var(--primary-red);
-  background-color: var(--primary-red-light);
+  background-color: rgba(255, 42, 42, 0.12);
+  box-shadow: 0 0 15px rgba(255, 42, 42, 0.2);
 }
 
 .addr-top-row {
@@ -97,92 +103,126 @@
   margin-bottom: 0.5rem;
 }
 
+.addr-top-row input {
+  accent-color: var(--primary-red);
+}
+
 .addr-tag-badge {
   font-size: 0.75rem;
-  font-weight: 700;
-  background: #18181b;
-  color: white;
-  padding: 2px 7px;
+  font-weight: 750;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  padding: 2px 8px;
   border-radius: var(--radius-full);
 }
 
 .addr-street-text {
-  font-size: 0.88rem;
-  color: var(--text-main);
-  line-height: 1.4;
-  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+  color: #ffffff;
+  line-height: 1.45;
+  margin-bottom: 0.35rem;
   font-weight: 600;
 }
 
 .addr-city-text {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
 }
 
 /* Add Address Form */
 .add-address-form {
-  margin-top: 1.25rem;
-  background: var(--bg-alt);
-  padding: 1.25rem;
+  margin-top: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1.5rem;
   border-radius: var(--radius-md);
-  border: 1px solid var(--border-medium);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .add-address-form h5 {
-  font-size: 0.95rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 750;
+  color: #ffffff;
+  margin-bottom: 1.25rem;
 }
 
 .addr-form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+.form-group input, .form-group select {
+  width: 100%;
+  padding: 0.7rem 0.95rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-sm);
+  color: #ffffff;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.form-group input:focus, .form-group select:focus {
+  border-color: var(--primary-red);
+}
+
+.form-group select option {
+  background: #111116;
+  color: #ffffff;
 }
 
 .btn-save-addr {
-  padding: 0.65rem 1.5rem;
-  font-size: 0.88rem;
+  padding: 0.7rem 1.6rem;
+  font-size: 0.9rem;
 }
 
 /* Payment Methods */
 .payment-note {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .payment-methods-grid {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 1rem;
 }
 
 .payment-option-card {
-  padding: 1.15rem;
-  border: 1.5px solid var(--border-medium);
+  padding: 1.25rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-md);
   cursor: pointer;
   display: flex;
   flex-direction: column;
   transition: all var(--transition-fast);
-  background: white;
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .payment-option-card:hover:not(.disabled) {
-  border-color: var(--primary-red);
+  border-color: rgba(255, 42, 42, 0.4);
 }
 
 .payment-option-card.selected {
   border-color: var(--primary-red);
-  background-color: var(--primary-red-light);
+  background-color: rgba(255, 42, 42, 0.12);
+  box-shadow: 0 0 15px rgba(255, 42, 42, 0.2);
 }
 
 .payment-option-card.disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
-  background-color: var(--bg-alt);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .payment-icon-head {
@@ -192,10 +232,19 @@
   margin-bottom: 0.4rem;
 }
 
+.payment-icon-head input {
+  accent-color: var(--primary-red);
+}
+
 .pay-logo {
-  font-weight: 800;
+  font-weight: 850;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.payment-option-card strong {
+  color: #ffffff;
   font-size: 0.95rem;
-  color: var(--text-main);
 }
 
 .pay-desc {
@@ -206,39 +255,40 @@
 
 /* COD Alert Box */
 .cod-alert-box {
-  margin-top: 0.65rem;
-  padding: 0.5rem 0.75rem;
-  background: #fef2f2;
-  border: 1px solid #fecaca;
+  margin-top: 0.75rem;
+  padding: 0.6rem 0.85rem;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.35);
   border-radius: var(--radius-sm);
-  font-size: 0.8rem;
-  color: #dc2626;
-  font-weight: 600;
+  font-size: 0.82rem;
+  color: #fca5a5;
+  font-weight: 650;
 }
 
 .cod-available-tag {
   margin-top: 0.5rem;
-  font-size: 0.78rem;
-  color: #16a34a;
-  font-weight: 700;
+  font-size: 0.8rem;
+  color: #4ade80;
+  font-weight: 750;
 }
 
 /* Summary Col */
 .checkout-summary-card {
-  padding: 1.75rem;
+  padding: 2rem;
   border-radius: var(--radius-lg);
 }
 
 .summary-title {
-  font-size: 1.15rem;
-  font-weight: 800;
-  margin-bottom: 1.25rem;
+  font-size: 1.25rem;
+  font-weight: 850;
+  color: #ffffff;
+  margin-bottom: 1.35rem;
 }
 
 .checkout-items-preview {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.75rem;
   max-height: 220px;
   overflow-y: auto;
 }
@@ -246,7 +296,7 @@
 .checkout-item-row {
   display: flex;
   justify-content: space-between;
-  font-size: 0.88rem;
+  font-size: 0.9rem;
 }
 
 .checkout-item-title-wrap {
@@ -255,12 +305,12 @@
 }
 
 .checkout-qty {
-  font-weight: 700;
+  font-weight: 800;
   color: var(--primary-red);
 }
 
 .checkout-item-name {
-  color: var(--text-main);
+  color: #ffffff;
   max-width: 220px;
   white-space: nowrap;
   overflow: hidden;
@@ -268,48 +318,48 @@
 }
 
 .checkout-item-price {
-  font-weight: 700;
-  color: var(--text-main);
+  font-weight: 750;
+  color: #ffffff;
 }
 
 .tokens-checkout-callout {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  background: #fffbeb;
-  border: 1px solid #fde68a;
-  padding: 0.75rem 1rem;
+  gap: 0.85rem;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  padding: 0.85rem 1.15rem;
   border-radius: var(--radius-md);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .token-coin-icon {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
 }
 
 .tokens-checkout-callout strong {
-  font-size: 0.88rem;
-  color: #b45309;
+  font-size: 0.92rem;
+  color: #fbbf24;
   display: block;
 }
 
 .tokens-checkout-callout p {
-  font-size: 0.78rem;
-  color: #92400e;
+  font-size: 0.8rem;
+  color: #fde68a;
 }
 
 .place-order-btn {
   width: 100%;
-  padding: 1rem;
-  font-size: 1.05rem;
+  padding: 1.05rem;
+  font-size: 1.1rem;
 }
 
 .cancellation-policy-notice {
-  font-size: 0.78rem;
-  color: var(--text-muted);
+  font-size: 0.8rem;
+  color: var(--text-dim);
   text-align: center;
-  margin-top: 1rem;
-  line-height: 1.4;
+  margin-top: 1.25rem;
+  line-height: 1.5;
 }
 
 @media (max-width: 900px) {
